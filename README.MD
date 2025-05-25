@@ -1,40 +1,41 @@
-# Contoh AJAX Request pakai XMLHttpRequest
+# budayakan membaca 📖
+> tujuan membuat project murni untuk pembelajaran
 
-Ini contoh gimana cara ngejalanin AJAX request pake JavaScript `XMLHttpRequest`.
+## Belajar AJAX, Fetch, dan Axios
 
-## Penjelasan Kodenya
+Proyek ini adalah latihan sederhana untuk memahami cara kerja AJAX, Fetch API, dan Axios dalam mengambil data dari API eksternal menggunakan JavaScript.
 
-```js
-// Bikin objek XMLHttpRequest buat request data ke server
-const req = new XMLHttpRequest();
+### Fitur
 
-// Kalo request-nya udah kelar, jalanin function ini
-req.onload = function () {
-    // Parse response JSON biar bisa dipake di JS
-    const data = JSON.parse(this.response);
-    // Print id dari data yang di-fetch, cek hasilnya di console
-    console.log(data.id);
-};
+- Mengambil candaan lucu dari API [icanhazdadjoke](https://icanhazdadjoke.com/) menggunakan **Axios**.
+- Contoh penggunaan **XMLHttpRequest** untuk mengambil data dari [jsonplaceholder](https://jsonplaceholder.typicode.com/).
+- Contoh penggunaan **Fetch API** untuk mengambil data dari [PokeAPI](https://pokeapi.co/).
 
-// Kalo request-nya error, log error status-nya
-req.onerror = function () {
-    console.error("Error:", this.status);
-};
+#### Struktur File
 
-// Mulai request pake metode GET ke URL yang ditentuin
-req.open("GET", "https://jsonplaceholder.typicode.com/posts/1");
-// Kirim request-nya, tunggu deh responsenya
-req.send();
-```
+- `index.html`  
+    Halaman utama dengan tombol untuk mengambil candaan.
 
-## Cara Kerjanya
+- `jokes.js`  
+    Script utama yang mengambil candaan dari API menggunakan Axios dan menampilkannya ke halaman.
 
-1. **Bikin Request:** Bikin objek `XMLHttpRequest` buat handle AJAX call-nya.
-2. **Handle Response:** Pas request kelar, response-nya di-parse dari JSON terus field `id` di-log ke console.
-3. **Handle Error:** Kalo ada error, status error-nya di-log juga.
-4. **Kirim Request:** Request dikirim ke API endpoint contoh.
+- `ajax.js`  
+    Contoh penggunaan XMLHttpRequest untuk mengambil data dari API.
 
-## Referensi
+- `fetch.js`  
+    Contoh penggunaan Fetch API dengan async/await.
 
-- [Dokumentasi MDN XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
-- [API JSONPlaceholder](https://jsonplaceholder.typicode.com/)
+#### Cara Menjalankan
+
+1. Buka `index.html` di browser.
+2. Klik tombol **Dapatkan Candaan** untuk melihat candaan baru dari API.
+
+## Contoh Candaan
+
+- How do you make Lady Gaga cry? Poker face.
+- What do you call a monkey in a mine field? A babooooom!
+
+---
+
+**Catatan:**  
+Pastikan koneksi internet aktif karena aplikasi mengambil data dari API eksternal.
