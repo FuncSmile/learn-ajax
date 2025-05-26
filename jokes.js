@@ -17,7 +17,9 @@ const getJokes = async () => {
     const joke = response.data.joke;
     return joke;
   } catch (error) {
-    console.error("Error fetching joke:", error);
+    console.error("Error fetching joke:", error.message);
+    document.body.style.backgroundColor = "red";
+    return "FAILED TO GET JOKE. I'M NOT IN THE MOOD.";
   }
 };
 
